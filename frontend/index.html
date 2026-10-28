@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mapa Eleitoral Ceará: Presidente (1º e 2º Turno) | Central de Dados O POVO+</title>
+    <meta name="description" content="Apuração detalhada por escola e local de votação para Presidente no Ceará. Compare o 1º e o 2º Turno e veja a variação de votos de Lula e Flávio Bolsonaro em todos os 184 municípios.">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=4.6">
+</head>
+<body>
+    <!-- Loading Overlay Otimizado e Elegante -->
+    <div id="loading-overlay">
+        <div class="loading-box">
+            <div class="loading-brand">Central de dados OPOVO<span>+</span></div>
+            <div class="loading-spinner"></div>
+            <div class="loading-progress-bar">
+                <div class="loading-progress-fill"></div>
+            </div>
+            <p id="loading-status-text" class="loading-text">Carregando mapa eleitoral...</p>
+        </div>
+    </div>
+
+    <!-- Mapa Leaflet -->
+    <div id="map"></div>
+    
+    <!-- Painel Lateral / Gaveta Mobile -->
+    <div class="overlay-panel sidebar opovo-theme">
+        <div class="sidebar-header" id="sidebar-header">
+            <div class="mobile-drag-handle"></div>
+            <h1 class="brand-title">Central de dados OPOVO<span style="color: #FCA311; font-weight: 900;">+</span></h1>
+            <h2 class="main-title">Presidente: 1º e 2º Turno</h2>
+            <p class="description">
+                Apuração urna a urna nos 6.647 locais de votação de todos os 184 municípios do Ceará.
+            </p>
+            
+            <!-- Barra de Busca Inteligente -->
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Buscar escola, bairro ou município..." autocomplete="off">
+                <button id="search-clear" class="search-clear hidden" title="Limpar busca" aria-label="Limpar busca">&times;</button>
+                <button id="search-btn" title="Buscar" aria-label="Buscar">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+            </div>
+            <ul id="search-results" class="search-results hidden"></ul>
+            
+            <!-- Seletor de Turno / Comparativo -->
+            <div class="cargo-selector turno-selector">
+                <button class="cargo-btn turno-btn active" data-turno="2turno">2º Turno</button>
+                <button class="cargo-btn turno-btn" data-turno="1turno">1º Turno</button>
+                <button class="cargo-btn turno-btn" data-turno="variacao">Variação</button>
+            </div>
+
+            <!-- Filtros Rápidos de Visualização -->
+            <div class="filter-chips-container">
+                <button class="filter-chip active" data-filter="all">Todos os locais</button>
+                <button class="filter-chip chip-lula" data-filter="lula">Locais com vitória de Lula</button>
+                <button class="filter-chip chip-bolso" data-filter="bolso">Locais com vitória de Flávio Bolsonaro</button>
+            </div>
+            
+            <!-- Resumo Estadual Consolidado -->
+            <div id="state-summary-card" class="state-summary-card">
+                <div class="state-summary-header">
+                    <span class="state-summary-title">Total Ceará (100% Apurado)</span>
+                    <span id="summary-turno-label" class="state-summary-badge">2º Turno</span>
+                </div>
+                <div id="summary-bars-content" class="summary-bars-content">
+                    <!-- Gerado dinamicamente via JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Ajuda / Como Ler -->
+    <div id="help-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Como ler o mapa eleitoral?</h2>
+                <button id="close-help" class="close-btn" aria-label="Fechar">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Este mapa interativo reúne a apuração oficial no nível de <strong>locais de votação (escolas e colégios eleitorais)</strong> de todo o estado do Ceará.</p>
+                
+                <h3 class="subtitle">1. Turnos e Vencedores</h3>
+                <p>Selecione <strong>2º Turno</strong> ou <strong>1º Turno</strong> para ver quem ganhou em cada escola:</p>
+                <div style="display: flex; gap: 15px; margin: 10px 0;">
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="width: 14px; height: 14px; border-radius: 50%; background: #cc0000; display: inline-block;"></span>
+                        <strong>Lula (PT)</strong>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="width: 14px; height: 14px; border-radius: 50%; background: #003399; display: inline-block;"></span>
+                        <strong>Flávio Bolsonaro (PL)</strong>
+                    </div>
+                </div>
+
+                <h3 class="subtitle" style="margin-top: 15px;">2. Variação / Crescimento</h3>
+                <p>Na aba <strong>Variação</strong>, as cores mostram qual dos dois candidatos conquistou maior crescimento em pontos percentuais do 1º para o 2º Turno naquele local específico.</p>
+                
+                <h3 class="subtitle" style="margin-top: 20px;">3. Tamanho dos Círculos</h3>
+                <p>O diâmetro de cada círculo é proporcional ao <strong>número de votos válidos</strong> daquele local. Escolas maiores possuem círculos maiores.</p>
+                <div class="size-legend" style="margin-top: 10px;">
+                    <div class="size-circle" style="width: 6px; height: 6px;"></div>
+                    <div class="size-circle" style="width: 12px; height: 12px;"></div>
+                    <div class="size-circle" style="width: 20px; height: 20px;"></div>
+                    <div class="size-circle" style="width: 28px; height: 28px;"></div>
+                    <span class="size-label" style="margin-left: 10px;">Poucos votos &rarr; Muitos votos</span>
+                </div>
+
+                <h3 class="subtitle" style="margin-top: 20px;">4. Detalhes ao Clicar</h3>
+                <p>Ao tocar ou clicar em qualquer ponto, abre-se uma <strong>tabela comparativa completa</strong> exibindo votos do 1º Turno, votos do 2º Turno e o saldo de votos e pontos percentuais de Lula e de Flávio Bolsonaro.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botões Flutuantes de Navegação -->
+    <div class="floating-controls">
+        <button id="btn-fullscreen" class="floating-btn" title="Ver em tela cheia" aria-label="Tela cheia">
+            <svg id="icon-fs-enter" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+            </svg>
+            <svg id="icon-fs-exit" style="display: none;" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"></path>
+            </svg>
+        </button>
+        <button id="btn-home" class="floating-btn" title="Voltar a visualização de todo o Estado" aria-label="Visualização Geral">
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        </button>
+        <button id="btn-help" class="floating-btn" title="Como ler o mapa" aria-label="Ajuda">
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        </button>
+    </div>
+
+    <!-- Tooltip / Card de Detalhes com Botão Fechar (X) -->
+    <div id="custom-tooltip" class="hidden"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js?v=4.6"></script>
+    <!-- Modal / Banner de Recomendação de Tela Cheia -->
+    <div id="fullscreen-prompt-modal" class="fs-prompt-backdrop hidden">
+        <div class="fs-prompt-card">
+            <button id="fs-prompt-close" class="fs-prompt-close-btn" aria-label="Fechar" title="Fechar (ESC)">&times;</button>
+            <div class="fs-prompt-icon-box">
+                <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                </svg>
+            </div>
+            <div class="fs-prompt-content">
+                <div class="fs-prompt-badge">Central de Dados O POVO+</div>
+                <h3 class="fs-prompt-title">Visualizar em Tela Cheia?</h3>
+                <p class="fs-prompt-text">
+                    Para explorar com o máximo de conforto os <strong>6.647 locais de votação</strong>, bairros e escolas do Ceará, recomendamos abrir em <strong>Tela Cheia</strong>.
+                </p>
+                <div class="fs-prompt-actions">
+                    <button id="fs-prompt-btn-expand" class="fs-prompt-btn-primary">
+                        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                        </svg>
+                        <span>Abrir em Tela Cheia</span>
+                    </button>
+                    <button id="fs-prompt-btn-dismiss" class="fs-prompt-btn-secondary">
+                        Continuar no embed da matéria
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,190 @@
+﻿Estado;Data_Pesquisa;Candidato_Pesquisa;Partido_Pesquisa;Media_Ponderada (%);Candidato_Urna;Partido_Urna;Situacao_Urna;Urna_Pct_Total (%);Urna_Pct_Validos (%);Erro_vs_Total (Urna - MP);Erro_vs_Validos (Urna - MP);Votos_Urna;Indecisos_Pesquisa (%);Matched
+Acre;21/09/2026;Mailza Assis;PP;30.12;MAILZA ASSIS;PP;2º turno;44.83;49.76;14.71;19.64;218760.0;8.37;True
+Acre;21/09/2026;Alan Rick;REPUBLICANOS;34.51;ALAN RICK;REPUBLICANOS;2º turno;29.07;32.27;-5.44;-2.24;141859.0;8.37;True
+Acre;21/09/2026;Tião Bocalom;PSDB;15.07;TIÃO BOCALOM;PSDB;Não eleito;9.21;10.22;-5.86;-4.85;44946.0;8.37;True
+Acre;21/09/2026;Thor Dantas;PSB;6.23;THOR DANTAS;PSB;Não eleito;6.76;7.5;0.53;1.27;32963.0;8.37;True
+Acre;21/09/2026;Dr. Luisinho;AGIR;0.6;;;;;;;;;8.37;False
+Acre;21/09/2026;Eudo Raffael;PCB;0.0;EUDO RAFFAEL;PCB;Não eleito;0.15;0.16;0.15;0.16;715.0;8.37;True
+Acre;21/09/2026;Branco/nulo/nenhum;-;5.38;Branco/nulo/nenhum;;;9.9;0.0;4.52;;48324.0;8.37;True
+Alagoas;03/10/2026;Jhc;PSDB;45.56;JHC;PSDB;Eleito;46.1;52.2;0.54;6.64;892484.0;6.4;True
+Alagoas;03/10/2026;Renan Filho;MDB;42.94;RENAN FILHO;MDB;Não eleito;41.83;47.37;-1.11;4.43;809796.0;6.4;True
+Alagoas;03/10/2026;Lenilda Luna;UP;0.46;LENILDA LUNA;UP;Não eleito;0.33;0.38;-0.13;-0.08;6454.0;6.4;True
+Alagoas;03/10/2026;Márcio Jambo;DEMOCRATA;0.29;MÁRCIO JAMBO;DEMOCRATA;Não eleito;0.05;0.05;-0.24;-0.24;880.0;6.4;True
+Alagoas;03/10/2026;Branco/nulo/nenhum;-;4.29;Branco/nulo/nenhum;;;11.69;0.0;7.4;;226206.0;6.4;True
+Amapá;24/09/2026;Dr. Furlan;PSD;59.01;DR. FURLAN;PSD;Eleito;59.16;62.75;0.15;3.74;281595.0;2.78;True
+Amapá;24/09/2026;Clécio Luís;UNIÃO BRASIL;34.57;CLÉCIO;UNIÃO;Não eleito;34.85;36.97;0.28;2.4;165900.0;2.78;True
+Amapá;24/09/2026;Jairo Palheta;PCO;0.44;JAIRO PALHETA;PCO;Não eleito;0.07;0.07;-0.37;-0.37;315.0;2.78;True
+Amapá;24/09/2026;Carlos Cley;PSTU;0.54;CARLOS CLEY;PSTU;Não eleito;0.12;0.13;-0.42;-0.41;561.0;2.78;True
+Amapá;24/09/2026;Delegado Marcos;DC;1.1;DELEGADO MARCOS;DC;Não eleito;0.08;0.08;-1.02;-1.02;376.0;2.78;True
+Amapá;24/09/2026;Branco/nulo/nenhum;-;2.77;Branco/nulo/nenhum;;;5.73;0.0;2.96;;27272.0;2.78;True
+Amazonas;24/09/2026;Omar Aziz;PSD;29.56;OMAR AZIZ;PSD;2º turno;37.71;40.63;8.15;11.07;841846.0;7.56;True
+Amazonas;24/09/2026;Professora Maria Do Carmo;PL;21.7;PROFESSORA MARIA DO CARMO;PL;2º turno;22.73;24.49;1.03;2.79;507335.0;7.56;True
+Amazonas;24/09/2026;Roberto Cidade;UNIÃO BRASIL;19.34;ROBERTO CIDADE;UNIÃO;Não eleito;20.33;21.91;0.99;2.57;453896.0;7.56;True
+Amazonas;24/09/2026;David Almeida;AVANTE;12.27;DAVID ALMEIDA;AVANTE;Não eleito;9.79;10.54;-2.48;-1.73;218490.0;7.56;True
+Amazonas;24/09/2026;Cabo Daciolo;MOBILIZA;3.67;CABO DACIOLO;MOBILIZA;Não eleito;1.62;1.75;-2.05;-1.92;36176.0;7.56;True
+Amazonas;24/09/2026;Isael Munduruku;REDE;0.97;ISAEL MUNDURUKU;REDE;Não eleito;0.51;0.55;-0.46;-0.42;11459.0;7.56;True
+Amazonas;24/09/2026;Branco/nulo/nenhum;-;5.17;Branco/nulo/nenhum;;;7.18;0.0;2.01;;160286.0;7.56;True
+Bahia;03/10/2026;Jerônimo Rodrigues;PT;43.8;JERÔNIMO RODRIGUES;PT;Eleito;51.14;55.8;7.34;12.0;4626509.0;5.11;True
+Bahia;03/10/2026;Acm Neto;UNIÃO BRASIL;44.36;ACM NETO;UNIÃO;Não eleito;40.07;43.72;-4.29;-0.64;3625227.0;5.11;True
+Bahia;03/10/2026;Ronaldo Mansur;PSOL;0.7;RONALDO MANSUR;PSL;Não eleito;0.3;0.33;-0.4;-0.37;27243.0;5.11;True
+Bahia;03/10/2026;Aroldo Felix;UP;0.0;AROLDO FELIX;UP;Não eleito;0.06;0.06;0.06;0.06;5238.0;5.11;True
+Bahia;03/10/2026;Maria Bona;PCO;0.41;MARIA BONA;PCO;Não eleito;0.04;0.05;-0.37;-0.36;4028.0;5.11;True
+Bahia;03/10/2026;Ariel Capistrano;DC;0.14;ARIEL CAPISTRANO;DC;Não eleito;0.03;0.03;-0.11;-0.11;2845.0;5.11;True
+Bahia;03/10/2026;Branco/nulo/nenhum;-;5.38;Branco/nulo/nenhum;;;8.35;0.0;2.97;;755089.0;5.11;True
+Ceará;03/10/2026;Elmano De Freitas;PT;45.39;ELMANO DE FREITAS;PT;Eleito;48.69;53.19;3.3;7.8;2875573.0;4.11;True
+Ceará;03/10/2026;Ciro Gomes;PSDB;44.86;CIRO GOMES;PSDB;Não eleito;42.31;46.22;-2.55;1.36;2498891.0;4.11;True
+Ceará;03/10/2026;Delegado Huggo;MISSÃO;0.94;DELEGADO HUGGO;MISSÃO;Não eleito;0.29;0.32;-0.65;-0.62;17219.0;4.11;True
+Ceará;03/10/2026;Branco/nulo/nenhum;-;4.13;Branco/nulo/nenhum;;;8.46;0.0;4.33;;499427.0;4.11;True
+Ceará;03/10/2026;Delegado Hugo;MISSÃO;0.3;DELEGADO HUGGO;MISSÃO;Não eleito;0.29;0.32;-0.01;0.02;17219.0;4.11;True
+Ceará;03/10/2026;Serley Leal;UP;0.08;SERLEY LEAL;UP;Não eleito;0.07;0.08;-0.01;0.0;4344.0;4.11;True
+Ceará;03/10/2026;Zé Batista;PSTU;0.07;ZÉ BATISTA;PSTU;Não eleito;0.04;0.04;-0.03;-0.03;2161.0;4.11;True
+Ceará;03/10/2026;Danilo Soares;DEMOCRATA;0.13;DANILO SOARES;DEMOCRATA;Não eleito;0.03;0.03;-0.1;-0.1;1743.0;4.11;True
+Ceará;03/10/2026;Ieri Braga;PCO;0.03;IERI BRAGA;PCO;Não eleito;0.01;0.01;-0.02;-0.02;463.0;4.11;True
+Ceará;03/10/2026;Vera Lúcia;NOVO;0.49;VERA LÚCIA;NOVO;Não eleito;0.1;0.11;-0.39;-0.38;5701.0;4.11;True
+Distrito Federal;03/10/2026;Celina Leão;PP;41.55;CELINA LEÃO;PP;2º turno;45.41;49.93;3.86;8.38;825530.0;8.22;True
+Distrito Federal;03/10/2026;Leandro Grass;PT;21.22;LEANDRO GRASS;PT;2º turno;31.35;34.47;10.13;13.25;569930.0;8.22;True
+Distrito Federal;03/10/2026;Paula Belmonte;PSDB;7.53;PAULA BELMONTE;PSDB;Não eleito;7.74;8.51;0.21;0.98;140765.0;8.22;True
+Distrito Federal;03/10/2026;Ricardo Cappelli;PSB;2.29;CAPPELLI;PSB;Não eleito;2.03;2.23;-0.26;-0.06;36828.0;8.22;True
+Distrito Federal;03/10/2026;Kiko Caputo;NOVO;2.65;KIKO CAPUTO;NOVO;Não eleito;3.97;4.36;1.32;1.71;72148.0;8.22;True
+Distrito Federal;03/10/2026;Professor Robson;PSTU;0.64;PROFESSOR ROBSON;PSTU;Não eleito;0.09;0.1;-0.55;-0.54;1640.0;8.22;True
+Distrito Federal;03/10/2026;Samara Mineiro;UP;0.87;;;;;;;;;8.22;False
+Distrito Federal;03/10/2026;Elisson Ferreira;AGIR;0.39;ELISSON;AGIR;Não eleito;0.06;0.07;-0.33;-0.32;1172.0;8.22;True
+Distrito Federal;03/10/2026;Expedito Mendonça;PCO;0.0;EXPEDITO MENDONÇA;PCO;Não eleito;0.03;0.04;0.03;0.04;595.0;8.22;True
+Distrito Federal;03/10/2026;Rico Pinheiro;PRTB;0.01;RICO PINHEIRO;PRTB;Não eleito;0.04;0.04;0.03;0.03;671.0;8.22;True
+Distrito Federal;03/10/2026;Branco/nulo/nenhum;-;7.59;Branco/nulo/nenhum;;;8.59;0.0;1.0;;156228.0;8.22;True
+Distrito Federal;03/10/2026;Cappelli;PSB;3.2;CAPPELLI;PSB;Não eleito;2.03;2.23;-1.17;-0.97;36828.0;8.22;True
+Distrito Federal;03/10/2026;Professora Samara Mineiro;UP;1.0;PROFESSORA SAMARA MINEIRO;UP;Não eleito;0.22;0.24;-0.78;-0.76;3958.0;8.22;True
+Distrito Federal;03/10/2026;Elisson;AGIR;0.0;ELISSON;AGIR;Não eleito;0.06;0.07;0.06;0.07;1172.0;8.22;True
+Espírito Santo;09/09/2026;Ricardo Ferraço;MDB;37.93;RICARDO FERRAÇO;MDB;2º turno;30.63;34.06;-7.3;-3.87;719397.0;5.42;True
+Espírito Santo;09/09/2026;Lorenzo Pazolini;REPUBLICANOS;34.4;LORENZO PAZOLINI;REPUBLICANOS;2º turno;44.65;49.65;10.25;15.25;1048633.0;5.42;True
+Espírito Santo;09/09/2026;Hélder Salomão;PT;13.26;HELDER SALOMÃO;PT;Não eleito;13.77;15.32;0.51;2.06;323483.0;5.42;True
+Espírito Santo;09/09/2026;Breno Barcelos;MISSÃO;3.13;BRENO BARCELOS;MISSÃO;Não eleito;0.77;0.85;-2.36;-2.28;17988.0;5.42;True
+Espírito Santo;09/09/2026;Rafael Demuner;UP;0.26;RAFAEL DEMUNER;UP;Não eleito;0.11;0.13;-0.15;-0.13;2670.0;5.42;True
+Espírito Santo;09/09/2026;Branco/nulo/nenhum;-;5.6;Branco/nulo/nenhum;;;10.07;0.0;4.47;;236441.0;5.42;True
+Goiás;24/09/2026;Daniel Vilela;MDB;43.67;DANIEL VILELA;MDB;Eleito;54.16;59.17;10.49;15.5;2148218.0;6.91;True
+Goiás;24/09/2026;Wilder Morais;PL;17.15;WILDER MORAIS;PL;Não eleito;20.1;21.96;2.95;4.81;797141.0;6.91;True
+Goiás;24/09/2026;Marconi Perillo;PSDB;19.14;MARCONI PERILLO;PSDB;Não eleito;7.96;8.69;-11.18;-10.45;315676.0;6.91;True
+Goiás;24/09/2026;Luís César Bueno;PT;6.47;LUIS CESAR BUENO;PT;Não eleito;8.99;9.82;2.52;3.35;356692.0;6.91;True
+Goiás;24/09/2026;Danilo Pinheiro;PCO;0.22;DANILO DA SILVA;PCO;Não eleito;0.03;0.03;-0.19;-0.19;1217.0;6.91;True
+Goiás;24/09/2026;Luciana Amorim;UP;0.86;LUCIANA AMORIM;UP;Não eleito;0.29;0.32;-0.57;-0.54;11632.0;6.91;True
+Goiás;24/09/2026;Branco/nulo/nenhum;-;5.38;Branco/nulo/nenhum;;;8.47;0.0;3.09;;335912.0;6.91;True
+Goiás;24/09/2026;Danilo Pinheiro Evangelista;PCO;0.4;DANILO DA SILVA;PCO;Não eleito;0.03;0.03;-0.37;-0.37;1217.0;6.91;True
+Maranhão;10/09/2026;Eduardo Braide;PSD;44.4;EDUARDO BRAIDE;PSD;Eleito;50.6;54.02;6.2;9.62;2104122.0;11.4;True
+Maranhão;10/09/2026;Orleans Brandão;MDB;27.8;ORLEANS BRANDÃO;MDB;Não eleito;32.56;34.76;4.76;6.96;1354044.0;11.4;True
+Maranhão;10/09/2026;Felipe Camarão;PT;8.0;FELIPE CAMARÃO;PT;Não eleito;8.99;9.6;0.99;1.6;374039.0;11.4;True
+Maranhão;10/09/2026;Roberto Rocha;PRTB;3.8;ROBERTO ROCHA;PRTB;Não eleito;1.18;1.26;-2.62;-2.54;48924.0;11.4;True
+Maranhão;10/09/2026;André Luís;MISSÃO;1.0;ANDRÉ LUIS;MISSÃO;Não eleito;0.19;0.2;-0.81;-0.8;7905.0;11.4;True
+Maranhão;10/09/2026;Branco/nulo/nenhum;-;3.2;Branco/nulo/nenhum;;;6.33;0.0;3.13;;263315.0;11.4;True
+Mato Grosso;03/10/2026;Otaviano Pivetta;REPUBLICANOS;40.65;OTAVIANO PIVETTA;REPUBLICANOS;Eleito;55.04;60.77;14.39;20.12;1128099.0;10.93;True
+Mato Grosso;03/10/2026;Wellington Fagundes;PL;25.99;WELLINGTON FAGUNDES;PL;Não eleito;21.0;23.19;-4.99;-2.8;430442.0;10.93;True
+Mato Grosso;03/10/2026;Natasha Slhessarenko;PSD;15.14;DOUTORA NATASHA;PSD;Não eleito;13.74;15.17;-1.4;0.03;281548.0;10.93;True
+Mato Grosso;03/10/2026;Rafaell Milas;REPUBLICANOS;0.97;RAFAELL MILAS;MISSÃO;Não eleito;0.5;0.55;-0.47;-0.42;10300.0;10.93;True
+Mato Grosso;03/10/2026;Sargento Laudicério;PL;1.2;SARGENTO LAUDICÉRIO;AGIR;Não eleito;0.16;0.17;-1.04;-1.03;3210.0;10.93;True
+Mato Grosso;03/10/2026;Maurício Coelho;NOVO;0.57;MAURICIO COELHO;MOBILIZA;Não eleito;0.13;0.15;-0.44;-0.42;2694.0;10.93;True
+Mato Grosso;03/10/2026;Branco/nulo/nenhum;-;6.09;Branco/nulo/nenhum;;;9.44;0.0;3.35;;193425.0;10.93;True
+Mato Grosso;03/10/2026;Doutora Natasha;PSD;11.0;DOUTORA NATASHA;PSD;Não eleito;13.74;15.17;2.74;4.17;281548.0;10.93;True
+Mato Grosso do Sul;10/09/2026;Eduardo Riedel;PP;44.21;EDUARDO RIEDEL;PP;Eleito;59.41;67.07;15.2;22.86;914323.0;7.35;True
+Mato Grosso do Sul;10/09/2026;Fábio Trad;PT;23.61;FÁBIO TRAD;PT;Não eleito;20.97;23.68;-2.64;0.07;322807.0;7.35;True
+Mato Grosso do Sul;10/09/2026;João Henrique Catan;NOVO;9.47;JOÃO HENRIQUE CATAN;NOVO;Não eleito;6.41;7.24;-3.06;-2.23;98677.0;7.35;True
+Mato Grosso do Sul;10/09/2026;Delcídio Amaral;PRD;5.31;DELCIDIO AMARAL;PRD;Não eleito;0.94;1.06;-4.37;-4.25;14431.0;7.35;True
+Mato Grosso do Sul;10/09/2026;Renato Gomes;DC;2.15;;;;;;;;;7.35;False
+Mato Grosso do Sul;10/09/2026;Lucien Rezende;PSOL;1.54;LUCIEN REZENDE;PSL;Não eleito;0.29;0.33;-1.25;-1.21;4444.0;7.35;True
+Mato Grosso do Sul;10/09/2026;Jefferson Bezerra;AGIR;1.0;JEFERSON BEZERRA;AGIR;Não eleito;0.06;0.07;-0.94;-0.93;912.0;7.35;True
+Mato Grosso do Sul;10/09/2026;Daniel Lemes;PCO;0.27;DANIEL LEMES;PCO;Não eleito;0.14;0.16;-0.13;-0.11;2115.0;7.35;True
+Mato Grosso do Sul;10/09/2026;Branco/nulo/nenhum;-;5.59;Branco/nulo/nenhum;;;11.42;0.0;5.83;;175711.0;7.35;True
+Minas Gerais;03/10/2026;Cleitinho Azevedo;REPUBLICANOS;40.29;CLEITINHO AZEVEDO;REPUBLICANOS;Eleito;50.06;55.4;9.77;15.11;6321590.0;8.47;True
+Minas Gerais;03/10/2026;Patrus Ananias;PT;18.35;PATRUS ANANIAS;PT;Não eleito;23.81;26.34;5.46;7.99;3006088.0;8.47;True
+Minas Gerais;03/10/2026;Alexandre Kalil;PDT;8.9;ALEXANDRE KALIL;PDT;Não eleito;3.2;3.54;-5.7;-5.36;403466.0;8.47;True
+Minas Gerais;03/10/2026;Flávio Roscoe;PL;5.06;FLÁVIO ROSCOE;PL;Não eleito;6.3;6.97;1.24;1.91;795193.0;8.47;True
+Minas Gerais;03/10/2026;Mateus Simões;PSD;5.05;MATEUS SIMÕES;PSD;Não eleito;4.2;4.65;-0.85;-0.4;530292.0;8.47;True
+Minas Gerais;03/10/2026;Gabriel Azevedo;MDB;2.66;GABRIEL;MDB;Não eleito;1.88;2.08;-0.78;-0.58;237051.0;8.47;True
+Minas Gerais;03/10/2026;Ben Mendes;MISSÃO;1.33;BEN MENDES;MISSÃO;Não eleito;0.64;0.7;-0.69;-0.63;80308.0;8.47;True
+Minas Gerais;03/10/2026;Túlio Lopes;PCB;1.08;;;;;;;;;8.47;False
+Minas Gerais;03/10/2026;Henrique áreas;PCO;0.47;HENRIQUE ÁREAS;PCO;Não eleito;0.01;0.01;-0.46;-0.46;1464.0;8.47;True
+Minas Gerais;03/10/2026;Indira Xavier;UP;0.46;INDIRA XAVIER;UP;Não eleito;0.16;0.18;-0.3;-0.28;20662.0;8.47;True
+Minas Gerais;03/10/2026;Rafael Duda;PSTU;0.5;RAFAEL DUDA;PSTU;Não eleito;0.04;0.04;-0.46;-0.46;4764.0;8.47;True
+Minas Gerais;03/10/2026;Branco/nulo/nenhum;-;7.96;Branco/nulo/nenhum;;;9.62;0.0;1.66;;1215332.0;8.47;True
+Minas Gerais;03/10/2026;Gabriel;MDB;2.0;GABRIEL;MDB;Não eleito;1.88;2.08;-0.12;0.08;237051.0;8.47;True
+Minas Gerais;03/10/2026;Professor Túlio Lopes;PCB;0.0;PROFESSOR TÚLIO LOPES;PCB;Não eleito;0.09;0.1;0.09;0.1;10957.0;8.47;True
+Paraná;24/09/2026;Sérgio Moro;PL;40.99;SERGIO MORO;PL;Eleito;45.8;50.1;4.81;9.11;3127911.0;8.16;True
+Paraná;24/09/2026;Requião Filho;PDT;22.91;REQUIÃO FILHO;PDT;Não eleito;21.46;23.47;-1.45;0.56;1465601.0;8.16;True
+Paraná;24/09/2026;Sandro Alex;PSD;20.06;SANDRO ALEX;PSD;Não eleito;23.19;25.37;3.13;5.31;1583764.0;8.16;True
+Paraná;24/09/2026;Alexandre Salomão;MOBILIZA;0.59;;;;;;;;;8.16;False
+Paraná;24/09/2026;Tayná Miessa;UP;0.74;TAYNÁ MIESSA;UP;Não eleito;0.21;0.23;-0.53;-0.51;14193.0;8.16;True
+Paraná;24/09/2026;Luiz França;MISSÃO;1.03;LUIZ FRANÇA;MISSÃO;Não eleito;0.65;0.71;-0.38;-0.32;44581.0;8.16;True
+Paraná;24/09/2026;Samuel De Mattos;PSTU;0.19;SAMUEL DE MATTOS;PSTU;Não eleito;0.03;0.03;-0.16;-0.16;2080.0;8.16;True
+Paraná;24/09/2026;Adriano Funileiro;PCO;0.2;ADRIANO FUNILEIRO;PCO;Não eleito;0.02;0.02;-0.18;-0.18;1525.0;8.16;True
+Paraná;24/09/2026;Branco/nulo/nenhum;-;5.57;Branco/nulo/nenhum;;;8.58;0.0;3.01;;585816.0;8.16;True
+Paraíba;03/10/2026;Lucas Ribeiro;PP;42.09;LUCAS RIBEIRO;PP;Eleito;54.9;64.3;12.81;22.21;1470252.0;9.28;True
+Paraíba;03/10/2026;Efraim Filho;PL;21.33;EFRAIM FILHO;PL;Não eleito;20.64;24.18;-0.69;2.85;552836.0;9.28;True
+Paraíba;03/10/2026;Cícero Lucena;MDB;17.62;CÍCERO LUCENA;MDB;Não eleito;9.44;11.06;-8.18;-6.56;252884.0;9.28;True
+Paraíba;03/10/2026;Pedro Coutinho;DC;0.84;;;;;;;;;9.28;False
+Paraíba;03/10/2026;Camilo Duarte;PCO;0.46;CAMILO DUARTE;PCO;Não eleito;0.09;0.1;-0.37;-0.36;2378.0;9.28;True
+Paraíba;03/10/2026;Yuri Ezequiel;UP;0.4;YURI EZEQUIEL;UP;Não eleito;0.31;0.36;-0.09;-0.04;8272.0;9.28;True
+Paraíba;03/10/2026;Branco/nulo/nenhum;-;8.25;Branco/nulo/nenhum;;;14.59;0.0;6.34;;390692.0;9.28;True
+Pará;15/09/2026;Hana Ghassan;MDB;39.35;HANA GHASSAN;MDB;Não eleito;41.97;46.53;2.62;7.18;2125084.0;12.94;True
+Pará;15/09/2026;Dr. Daniel Santos;PODEMOS;35.08;DR. DANIEL;PODE;Eleito;46.33;51.36;11.25;16.28;2345721.0;12.94;True
+Pará;15/09/2026;Araceli Lemos;PSOL;2.91;ARACELI;PSL;Não eleito;1.7;1.88;-1.21;-1.03;85857.0;12.94;True
+Pará;15/09/2026;Branco/nulo/nenhum;-;7.24;Branco/nulo/nenhum;;;9.8;0.0;2.56;;495922.0;12.94;True
+Pernambuco;03/10/2026;Raquel Lyra;PSD;45.04;RAQUEL LYRA;PSD;Eleito;47.51;53.27;2.47;8.23;2805438.0;4.53;True
+Pernambuco;03/10/2026;João Campos;PSB;43.7;JOÃO CAMPOS;PSB;Não eleito;39.97;44.82;-3.73;1.12;2360469.0;4.53;True
+Pernambuco;03/10/2026;Ivan Moraes;PSOL;1.25;IVAN MORAES;PSL;Não eleito;1.32;1.48;0.07;0.23;77699.0;4.53;True
+Pernambuco;03/10/2026;Renan Hallais;MISSÃO;0.56;RENAN;MISSÃO;Não eleito;0.31;0.35;-0.25;-0.21;18340.0;4.53;True
+Pernambuco;03/10/2026;Professora Camila;UP;0.14;PROFESSORA CAMILA;UP;Não eleito;0.06;0.07;-0.08;-0.07;3495.0;4.53;True
+Pernambuco;03/10/2026;Victor Assis;PCO;0.03;VICTOR ASSIS;PCO;Não eleito;0.01;0.01;-0.02;-0.02;424.0;4.53;True
+Pernambuco;03/10/2026;Guilherme Fonseca;PSTU;0.01;GUILHERME FONSECA;PSTU;Não eleito;0.02;0.02;0.01;0.01;987.0;4.53;True
+Pernambuco;03/10/2026;Branco/nulo/nenhum;-;4.81;Branco/nulo/nenhum;;;10.81;0.0;6.0;;638384.0;4.53;True
+Pernambuco;03/10/2026;Gulherme Fonseca;PSTU;0.1;GUILHERME FONSECA;PSTU;Não eleito;0.02;0.02;-0.08;-0.08;987.0;4.53;True
+Piauí;17/09/2026;Rafael Fonteles;PT;56.65;RAFAEL FONTELES;PT;Eleito;64.16;70.9;7.51;14.25;1436697.0;9.29;True
+Piauí;17/09/2026;Joel Rodrigues;PP;21.79;JOEL RODRIGUES;PP;Não eleito;24.92;27.54;3.13;5.75;557972.0;9.29;True
+Piauí;17/09/2026;Lúcia Santos;PSDB;1.24;;;;;;;;;9.29;False
+Piauí;17/09/2026;Francisco Jurity;DC;0.62;PROFESSOR JURITY;DC;Não eleito;0.05;0.05;-0.57;-0.57;1102.0;9.29;True
+Piauí;17/09/2026;Professor Gisvaldo;PSOL;0.9;PROFESSOR GISVALDO;PSL;Não eleito;0.45;0.49;-0.45;-0.41;10002.0;9.29;True
+Piauí;17/09/2026;Elizeu Aguiar;NOVO;0.82;ELIZEU AGUIAR;NOVO;Não eleito;0.23;0.25;-0.59;-0.57;5141.0;9.29;True
+Piauí;17/09/2026;Santiago Belizário;UP;0.7;SANTIAGO BELIZÁRIO;UP;Não eleito;0.08;0.09;-0.62;-0.61;1777.0;9.29;True
+Piauí;17/09/2026;Lourdes Melo;PCO;0.85;LOURDES MELO;PCO;Não eleito;0.06;0.06;-0.79;-0.79;1296.0;9.29;True
+Piauí;17/09/2026;Ravenna Castro;DEMOCRATA;0.1;RAVENNA DA INCLUSÃO;DEMOCRATA;Não eleito;0.04;0.04;-0.06;-0.06;819.0;9.29;True
+Piauí;17/09/2026;Geraldo Carvalho;PSTU;0.5;GERALDO CARVALHO;PSTU;Não eleito;0.08;0.09;-0.42;-0.41;1858.0;9.29;True
+Piauí;17/09/2026;Branco/nulo/nenhum;-;7.06;Branco/nulo/nenhum;;;9.52;0.0;2.46;;213111.0;9.29;True
+Rio Grande do Norte;28/08/2026;Allyson Bezerra;UNIÃO BRASIL;34.51;ALLYSON;UNIÃO;2º turno;33.85;36.94;-0.66;2.43;733809.0;16.93;True
+Rio Grande do Norte;28/08/2026;álvaro Dias;PL;19.62;ÁLVARO DIAS;PL;Não eleito;24.48;26.71;4.86;7.09;530580.0;16.93;True
+Rio Grande do Norte;28/08/2026;Cadu De Lula;PT;17.87;CADU DE LULA;PT;2º turno;33.14;36.16;15.27;18.29;718300.0;16.93;True
+Rio Grande do Norte;28/08/2026;Dário Barbosa;PSTU;0.43;DÁRIO BARBOSA;PSTU;Não eleito;0.06;0.07;-0.37;-0.36;1388.0;16.93;True
+Rio Grande do Norte;28/08/2026;Robério Paulino;PSOL;0.98;;;;;;;;;16.93;False
+Rio Grande do Norte;28/08/2026;Branco/nulo/nenhum;-;9.68;Branco/nulo/nenhum;;;8.25;0.0;-1.43;;178895.0;16.93;True
+Rio Grande do Sul;24/09/2026;Luciano Zucco;PL;35.31;ZUCCO;PL;Eleito;52.5;58.05;17.19;22.74;3516048.0;12.13;True
+Rio Grande do Sul;24/09/2026;Juliana Brizola;PDT;30.41;JULIANA BRIZOLA;PDT;Não eleito;28.63;31.65;-1.78;1.24;1917374.0;12.13;True
+Rio Grande do Sul;24/09/2026;Gabriel Souza;MDB;12.73;GABRIEL SOUZA;MDB;Não eleito;7.63;8.43;-5.1;-4.3;510698.0;12.13;True
+Rio Grande do Sul;24/09/2026;Marcelo Maranata;PSDB;2.43;MARCELO MARANATA;PSDB;Não eleito;1.52;1.68;-0.91;-0.75;101978.0;12.13;True
+Rio Grande do Sul;24/09/2026;Priscila Voigt;UP;0.68;PRISCILA VOIGT;UP;Não eleito;0.09;0.09;-0.59;-0.59;5716.0;12.13;True
+Rio Grande do Sul;24/09/2026;Branco/nulo/nenhum;-;5.23;Branco/nulo/nenhum;;;9.56;0.0;4.33;;639981.0;12.13;True
+Rio Grande do Sul;24/09/2026;Rejane De Oliveira;PSTU;0.71;REJANE DE OLIVEIRA;PSTU;Não eleito;0.05;0.06;-0.66;-0.65;3492.0;12.13;True
+Rio Grande do Sul;24/09/2026;César Pontes;PCO;0.96;CESAR PONTES;PCO;Não eleito;0.03;0.04;-0.93;-0.92;2137.0;12.13;True
+Rio de Janeiro;03/10/2026;Eduardo Paes;PSD;39.63;EDUARDO PAES;PSD;2º turno;37.65;42.76;-1.98;3.13;3706984.0;8.04;True
+Rio de Janeiro;03/10/2026;Douglas Ruas;PL;29.57;DOUGLAS RUAS;PL;2º turno;43.38;49.27;13.81;19.7;4271199.0;8.04;True
+Rio de Janeiro;03/10/2026;Anthony Garotinho;REPUBLICANOS;7.12;GAROTINHO;REPUBLICANOS;Não eleito;2.79;3.17;-4.33;-3.95;274411.0;8.04;True
+Rio de Janeiro;03/10/2026;William Siri;PSOL;2.05;WILLIAM SIRI;PSL;Não eleito;2.39;2.71;0.34;0.66;235347.0;8.04;True
+Rio de Janeiro;03/10/2026;Cyro Garcia;PSTU;0.82;CYRO GARCIA;PSTU;Não eleito;0.15;0.17;-0.67;-0.65;14642.0;8.04;True
+Rio de Janeiro;03/10/2026;Juliete Pantoja;UP;0.98;JULIETE;UP;Não eleito;0.34;0.39;-0.64;-0.59;33430.0;8.04;True
+Rio de Janeiro;03/10/2026;André Marinho;NOVO;0.94;ANDRÉ MARINHO;NOVO;Não eleito;0.46;0.52;-0.48;-0.42;45359.0;8.04;True
+Rio de Janeiro;03/10/2026;Coronel Busnello;MISSÃO;1.41;CORONEL BUSNELLO;MISSÃO;Não eleito;0.86;0.98;-0.55;-0.43;84889.0;8.04;True
+Rio de Janeiro;03/10/2026;Luan Monteiro;PCO;0.36;LUAN MONTEIRO;PCO;Não eleito;0.03;0.03;-0.33;-0.33;2777.0;8.04;True
+Rio de Janeiro;03/10/2026;Branco/nulo/nenhum;-;9.11;Branco/nulo/nenhum;;;11.95;0.0;2.84;;1176829.0;8.04;True
+Rio de Janeiro;03/10/2026;Cornoel Busnello;MISSÃO;1.0;CORONEL BUSNELLO;MISSÃO;Não eleito;0.86;0.98;-0.14;-0.02;84889.0;8.04;True
+Rio de Janeiro;03/10/2026;Garotinho;REPUBLICANOS;6.1;GAROTINHO;REPUBLICANOS;Não eleito;2.79;3.17;-3.31;-2.93;274411.0;8.04;True
+Rio de Janeiro;03/10/2026;Juliette;UP;0.2;JULIETE;UP;Não eleito;0.34;0.39;0.14;0.19;33430.0;8.04;True
+Rondônia;24/09/2026;Marcos Rogério;PL;30.71;MARCOS ROGÉRIO;PL;Eleito;54.26;56.86;23.55;26.15;537370.0;18.54;True
+Rondônia;24/09/2026;Adailton Furia;PSD;21.0;ADAILTON FURIA;PSD;Não eleito;19.14;20.06;-1.86;-0.94;189547.0;18.54;True
+Rondônia;24/09/2026;Hildon Chaves;UNIÃO BRASIL;11.99;HILDON CHAVES;UNIÃO;Não eleito;13.57;14.22;1.58;2.23;134355.0;18.54;True
+Rondônia;24/09/2026;Expedito Netto;PT;7.2;EXPEDITO NETTO;PT;Não eleito;7.36;7.71;0.16;0.51;72851.0;18.54;True
+Rondônia;24/09/2026;Samuel Costa;PSB;1.7;SAMUEL COSTA;PSB;Não eleito;0.44;0.46;-1.26;-1.24;4344.0;18.54;True
+Rondônia;24/09/2026;Pedro Abib;MDB;1.09;PEDRO ABIB;MDB;Não eleito;0.67;0.7;-0.42;-0.39;6591.0;18.54;True
+Rondônia;24/09/2026;Branco/nulo/nenhum;-;7.87;Branco/nulo/nenhum;;;4.57;0.0;-3.3;;45255.0;18.54;True
+Tocantins;23/09/2026;Professora Dorinha;UNIÃO BRASIL;38.77;PROFESSORA DORINHA;UNIÃO;2º turno;40.08;45.52;1.31;6.75;386260.0;8.34;True
+Tocantins;23/09/2026;Vicentinho Júnior;PSDB;30.0;VICENTINHO JÚNIOR;PSDB;2º turno;38.68;43.94;8.68;13.94;372848.0;8.34;True
+Tocantins;23/09/2026;Laurez Moreira;PSD;8.12;LAUREZ MOREIRA;PSD;Não eleito;7.26;8.24;-0.86;0.12;69967.0;8.34;True
+Tocantins;23/09/2026;Siqueira Campos Jr;DEMOCRATA;5.34;;;;;;;;;8.34;False
+Tocantins;23/09/2026;Ataídes De Oliveira;NOVO;5.18;ATAIDES DE OLIVEIRA;NOVO;Não eleito;1.37;1.55;-3.81;-3.63;13173.0;8.34;True
+Tocantins;23/09/2026;Du Pereira;DC;0.2;DU PEREIRA;DC;Não eleito;0.13;0.15;-0.07;-0.05;1272.0;8.34;True
+Tocantins;23/09/2026;Professor Witer Naves;PSOL;1.09;PROF WITER NAVES;PSL;Não eleito;0.53;0.6;-0.56;-0.49;5109.0;8.34;True
+Tocantins;23/09/2026;Branco/nulo/nenhum;-;5.79;Branco/nulo/nenhum;;;11.84;0.0;6.05;;114154.0;8.34;True

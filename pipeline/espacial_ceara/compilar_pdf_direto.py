@@ -1,0 +1,721 @@
+import subprocess
+import os
+
+HTML_PATH = r"C:\Users\RED.AyuriReis\.gemini\antigravity-ide\scratch\nexo_map\relatorio_eleicoes_ceara_direto.html"
+PDF_NEXO = r"C:\Users\RED.AyuriReis\.gemini\antigravity-ide\scratch\nexo_map\Relatorio_Eleicoes_Ceara_2026_Locais_de_Votacao_OPOVO.pdf"
+PDF_DOWNLOADS = r"C:\Users\RED.AyuriReis\Downloads\Relatorio_Eleicoes_Ceara_2026_Locais_de_Votacao_OPOVO.pdf"
+
+html_content = """<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Relatório de Apuração: Presidente por Local de Votação no Ceará - O POVO+</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 18mm 16mm 20mm 16mm;
+            @bottom-right {
+                content: counter(page);
+            }
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-size: 10pt;
+            line-height: 1.55;
+            color: #1e293b;
+            background: #ffffff;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* HEADER EDITORIAL */
+        .header-brand {
+            border-bottom: 3px solid #FCA311;
+            padding-bottom: 10px;
+            margin-bottom: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .brand-name {
+            font-size: 12pt;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            color: #0f172a;
+            text-transform: uppercase;
+        }
+
+        .brand-name span {
+            color: #FCA311;
+        }
+
+        .brand-tag {
+            font-size: 8pt;
+            font-weight: 700;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        /* TÍTULOS E MANCHETE */
+        h1.report-title {
+            font-size: 19pt;
+            font-weight: 800;
+            line-height: 1.2;
+            color: #0f172a;
+            letter-spacing: -0.4px;
+            margin-bottom: 6px;
+        }
+
+        p.report-subtitle {
+            font-size: 10.5pt;
+            color: #475569;
+            line-height: 1.4;
+            margin-bottom: 14px;
+        }
+
+        .meta-info {
+            font-size: 8pt;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        /* CORPO DO TEXTO */
+        p {
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+
+        h2.section-heading {
+            font-size: 12.5pt;
+            font-weight: 800;
+            color: #0f172a;
+            margin-top: 22px;
+            margin-bottom: 8px;
+            letter-spacing: -0.2px;
+            border-left: 4px solid #FCA311;
+            padding-left: 8px;
+            page-break-after: avoid;
+        }
+
+        /* CAIXAS DE DESTAQUE ANALÍTICAS */
+        .callout-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #FCA311;
+            border-radius: 6px;
+            padding: 10px 14px;
+            margin: 14px 0;
+            page-break-inside: avoid;
+        }
+
+        .callout-title {
+            font-size: 8.5pt;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #0f172a;
+            margin-bottom: 4px;
+        }
+
+        .callout-text {
+            font-size: 9.5pt;
+            color: #334155;
+            line-height: 1.45;
+            margin-bottom: 0;
+            text-align: left;
+        }
+
+        /* TABELAS */
+        .table-container {
+            margin: 14px 0 18px;
+            page-break-inside: avoid;
+        }
+
+        .table-title {
+            font-size: 9pt;
+            font-weight: 800;
+            color: #0f172a;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            margin-bottom: 5px;
+        }
+
+        table.data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 8pt;
+            line-height: 1.3;
+        }
+
+        table.data-table th {
+            background: #f1f5f9;
+            color: #334155;
+            font-weight: 700;
+            text-align: left;
+            padding: 6px 7px;
+            border-top: 1px solid #cbd5e1;
+            border-bottom: 2px solid #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.2px;
+        }
+
+        table.data-table td {
+            padding: 5px 7px;
+            border-bottom: 1px solid #e2e8f0;
+            color: #1e293b;
+        }
+
+        table.data-table tr:nth-child(even) td {
+            background: #f8fafc;
+        }
+
+        .num-col {
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .badge-pt {
+            color: #b91c1c;
+            font-weight: 700;
+        }
+
+        .badge-pl {
+            color: #1d4ed8;
+            font-weight: 700;
+        }
+
+        .badge-virada {
+            background: #dcfce7;
+            color: #166534;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 7.5pt;
+            display: inline-block;
+        }
+
+        /* RODAPÉ DO DOCUMENTO */
+        .document-footer {
+            margin-top: 26px;
+            padding-top: 10px;
+            border-top: 1px solid #cbd5e1;
+            font-size: 7.5pt;
+            color: #64748b;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <div class="header-brand">
+        <div class="brand-name">Central de Dados O POVO<span>+</span></div>
+        <div class="brand-tag">Relatório de Apuração &bull; Presidente (1º e 2º Turno)</div>
+    </div>
+
+    <!-- TÍTULO -->
+    <h1 class="report-title">Eleições Presidenciais no Ceará: Dados por Local de Votação</h1>
+    <p class="report-subtitle">
+        Comparativo oficial de votos entre o 1º e o 2º turno nas 6.647 seções e colégios eleitorais dos 184 municípios cearenses.
+    </p>
+
+    <div class="meta-info">
+        Fonte: Tribunal Superior Eleitoral (TSE) &bull; Base Consolidada de 100% das Urnas &bull; Outubro de 2026
+    </div>
+
+    <!-- RESUMO ESTADUAL -->
+    <p>
+        No total do Ceará, Lula venceu a eleição presidencial com <strong>4.036.124 votos (68,93%)</strong>, contra <strong>1.819.478 votos (31,07%)</strong> de Flávio Bolsonaro, somando 5.855.602 votos válidos. Em relação ao primeiro turno, Lula obteve <strong>+478.540 votos</strong> a mais no Estado, enquanto Flávio Bolsonaro cresceu <strong>+61.964 votos</strong>.
+    </p>
+
+    <!-- PERGUNTA 1 -->
+    <h2 class="section-heading">Qual o colégio onde Lula mais ganhou votos?</h2>
+    <p>
+        O <strong>Colégio Ari de Sá Cavalcante (unidade Washington Soares)</strong>, no bairro Edson Queiroz, em Fortaleza, foi o local de votação onde Lula registrou o maior aumento de votos em números absolutos no Ceará. O candidato teve 4.522 votos no 1º turno e 5.364 no 2º turno, um aumento de <strong>+842 votos</strong> (+7,18 pontos percentuais).
+    </p>
+    <p>
+        O segundo maior ganho de Lula ocorreu na <strong>Universidade Estadual do Ceará (Uece)</strong>, no campus do Itaperi, em Fortaleza: Lula passou de 4.558 votos (56,14%) para 5.273 votos (62,42%), um ganho de <strong>+715 votos</strong>. Em terceiro ficou o <strong>Formace (antigo Colégio Cearense)</strong>, no bairro João XXIII, com mais <strong>+665 votos</strong> (4.047 para 4.712).
+    </p>
+    <p>
+        Fora da capital, o maior crescimento de Lula foi registrado em Caucaia, na <strong>EEIEF Economista Rubens Vaz da Costa</strong> (bairro Marechal Rondon / Grande Jurema), onde o petista cresceu <strong>+650 votos</strong> (passando de 3.468 para 4.118 votos).
+    </p>
+
+    <!-- TABELA TOP LULA -->
+    <div class="table-container">
+        <div class="table-title">Tabela 1: 10 locais de votação onde Lula mais ganhou votos no 2º turno</div>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Local de Votação</th>
+                    <th>Município / Bairro</th>
+                    <th class="num-col">1ºT Votos</th>
+                    <th class="num-col">2ºT Votos</th>
+                    <th class="num-col">Crescimento</th>
+                    <th class="num-col">1ºT %</th>
+                    <th class="num-col">2ºT %</th>
+                    <th class="num-col">Variação (pp)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1º</td>
+                    <td>Colégio Ari de Sá Cavalcante WS</td>
+                    <td>Fortaleza (Edson Queiroz)</td>
+                    <td class="num-col">4.522</td>
+                    <td class="num-col">5.364</td>
+                    <td class="num-col badge-pt"><strong>+842</strong></td>
+                    <td class="num-col">43,92%</td>
+                    <td class="num-col">51,10%</td>
+                    <td class="num-col">+7,18 pp</td>
+                </tr>
+                <tr>
+                    <td>2º</td>
+                    <td>Universidade Estadual do Ceará (Uece)</td>
+                    <td>Fortaleza (Itaperi)</td>
+                    <td class="num-col">4.558</td>
+                    <td class="num-col">5.273</td>
+                    <td class="num-col badge-pt"><strong>+715</strong></td>
+                    <td class="num-col">56,14%</td>
+                    <td class="num-col">62,42%</td>
+                    <td class="num-col">+6,28 pp</td>
+                </tr>
+                <tr>
+                    <td>3º</td>
+                    <td>Formace (Antigo Colégio Cearense)</td>
+                    <td>Fortaleza (João XXIII)</td>
+                    <td class="num-col">4.047</td>
+                    <td class="num-col">4.712</td>
+                    <td class="num-col badge-pt"><strong>+665</strong></td>
+                    <td class="num-col">51,44%</td>
+                    <td class="num-col">57,70%</td>
+                    <td class="num-col">+6,26 pp</td>
+                </tr>
+                <tr>
+                    <td>4º</td>
+                    <td>EEIEF Economista Rubens Vaz da Costa</td>
+                    <td>Caucaia (Marechal Rondon)</td>
+                    <td class="num-col">3.468</td>
+                    <td class="num-col">4.118</td>
+                    <td class="num-col badge-pt"><strong>+650</strong></td>
+                    <td class="num-col">53,98%</td>
+                    <td class="num-col">60,67%</td>
+                    <td class="num-col">+6,69 pp</td>
+                </tr>
+                <tr>
+                    <td>5º</td>
+                    <td>Universidade de Fortaleza (Unifor)</td>
+                    <td>Fortaleza (Edson Queiroz)</td>
+                    <td class="num-col">3.802</td>
+                    <td class="num-col">4.443</td>
+                    <td class="num-col badge-pt"><strong>+641</strong></td>
+                    <td class="num-col">50,42%</td>
+                    <td class="num-col">57,17%</td>
+                    <td class="num-col">+6,75 pp</td>
+                </tr>
+                <tr>
+                    <td>6º</td>
+                    <td>EEFM José de Alencar</td>
+                    <td>Fortaleza (Messejana)</td>
+                    <td class="num-col">2.869</td>
+                    <td class="num-col">3.466</td>
+                    <td class="num-col badge-pt"><strong>+597</strong></td>
+                    <td class="num-col">50,44%</td>
+                    <td class="num-col">58,46%</td>
+                    <td class="num-col">+8,02 pp</td>
+                </tr>
+                <tr>
+                    <td>7º</td>
+                    <td>EEM Liceu de Messejana</td>
+                    <td>Fortaleza (Messejana)</td>
+                    <td class="num-col">2.763</td>
+                    <td class="num-col">3.355</td>
+                    <td class="num-col badge-pt"><strong>+592</strong></td>
+                    <td class="num-col">53,25%</td>
+                    <td class="num-col">61,57%</td>
+                    <td class="num-col">+8,32 pp</td>
+                </tr>
+                <tr>
+                    <td>8º</td>
+                    <td>Escola Arquiteto Rogério Fróes</td>
+                    <td>Fortaleza (Cidade 2000)</td>
+                    <td class="num-col">3.017</td>
+                    <td class="num-col">3.606</td>
+                    <td class="num-col badge-pt"><strong>+589</strong></td>
+                    <td class="num-col">53,68%</td>
+                    <td class="num-col">60,69%</td>
+                    <td class="num-col">+7,01 pp</td>
+                </tr>
+                <tr>
+                    <td>9º</td>
+                    <td>Centro Educacional Cedce (Antigo Sesi)</td>
+                    <td>Fortaleza (Barra do Ceará)</td>
+                    <td class="num-col">2.546</td>
+                    <td class="num-col">3.121</td>
+                    <td class="num-col badge-pt"><strong>+575</strong></td>
+                    <td class="num-col">55,82%</td>
+                    <td class="num-col">62,66%</td>
+                    <td class="num-col">+6,84 pp</td>
+                </tr>
+                <tr>
+                    <td>10º</td>
+                    <td>EEF José Bonifácio (Escola Modelo)</td>
+                    <td>Quixadá (Campo Novo)</td>
+                    <td class="num-col">654</td>
+                    <td class="num-col">1.213</td>
+                    <td class="num-col badge-pt"><strong>+559</strong></td>
+                    <td class="num-col">57,17%</td>
+                    <td class="num-col">67,24%</td>
+                    <td class="num-col">+10,07 pp</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- PERGUNTA 2 -->
+    <h2 class="section-heading">Qual o colégio onde Flávio Bolsonaro mais ganhou votos?</h2>
+    <p>
+        O <strong>Colégio Ari de Sá Cavalcante (unidade Washington Soares)</strong> também foi o local onde Flávio Bolsonaro registrou seu maior ganho absoluto de votos no Estado, com <strong>+331 votos</strong> (passou de 4.803 para 5.134 votos, variando de 46,65% para 48,90%).
+    </p>
+    <p>
+        O segundo maior crescimento de Flávio foi na <strong>Faculdade Uninta Fortaleza</strong>, no bairro Cocó, onde o candidato subiu de 3.324 para 3.611 votos (<strong>+287 votos</strong>, passando de 48,75% para 51,14%). O terceiro maior ganho ocorreu no <strong>Colégio Cívico Militar Batalha do Riachuelo</strong>, no bairro Manuel Dias Branco, com <strong>+262 votos</strong> (3.728 para 3.990 votos, alcançando 53,77%).
+    </p>
+    <p>
+        Todos os 10 locais onde Flávio Bolsonaro mais ampliou votos no Ceará ficam em Fortaleza, concentrados em colégios particulares e faculdades da Zona Leste (Edson Queiroz, Cocó, Manuel Dias Branco, Aldeota e Varjota).
+    </p>
+
+    <!-- TABELA TOP FLÁVIO -->
+    <div class="table-container">
+        <div class="table-title">Tabela 2: 10 locais de votação onde Flávio Bolsonaro mais ganhou votos no 2º turno</div>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Local de Votação</th>
+                    <th>Município / Bairro</th>
+                    <th class="num-col">1ºT Votos</th>
+                    <th class="num-col">2ºT Votos</th>
+                    <th class="num-col">Crescimento</th>
+                    <th class="num-col">1ºT %</th>
+                    <th class="num-col">2ºT %</th>
+                    <th class="num-col">Variação (pp)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1º</td>
+                    <td>Colégio Ari de Sá Cavalcante WS</td>
+                    <td>Fortaleza (Edson Queiroz)</td>
+                    <td class="num-col">4.803</td>
+                    <td class="num-col">5.134</td>
+                    <td class="num-col badge-pl"><strong>+331</strong></td>
+                    <td class="num-col">46,65%</td>
+                    <td class="num-col">48,90%</td>
+                    <td class="num-col">+2,25 pp</td>
+                </tr>
+                <tr>
+                    <td>2º</td>
+                    <td>Faculdade Uninta Fortaleza</td>
+                    <td>Fortaleza (Cocó)</td>
+                    <td class="num-col">3.324</td>
+                    <td class="num-col">3.611</td>
+                    <td class="num-col badge-pl"><strong>+287</strong></td>
+                    <td class="num-col">48,75%</td>
+                    <td class="num-col">51,14%</td>
+                    <td class="num-col">+2,39 pp</td>
+                </tr>
+                <tr>
+                    <td>3º</td>
+                    <td>Colégio Cívico Militar Batalha do Riachuelo</td>
+                    <td>Fortaleza (Manuel Dias Branco)</td>
+                    <td class="num-col">3.728</td>
+                    <td class="num-col">3.990</td>
+                    <td class="num-col badge-pl"><strong>+262</strong></td>
+                    <td class="num-col">51,26%</td>
+                    <td class="num-col">53,77%</td>
+                    <td class="num-col">+2,51 pp</td>
+                </tr>
+                <tr>
+                    <td>4º</td>
+                    <td>Colégio Ari de Sá Monsenhor Catão</td>
+                    <td>Fortaleza (Aldeota)</td>
+                    <td class="num-col">2.105</td>
+                    <td class="num-col">2.345</td>
+                    <td class="num-col badge-pl"><strong>+240</strong></td>
+                    <td class="num-col">45,48%</td>
+                    <td class="num-col">50,75%</td>
+                    <td class="num-col">+5,27 pp</td>
+                </tr>
+                <tr>
+                    <td>5º</td>
+                    <td>Colégio Christus Av. Barão de Studart</td>
+                    <td>Fortaleza (Aldeota)</td>
+                    <td class="num-col">2.809</td>
+                    <td class="num-col">3.040</td>
+                    <td class="num-col badge-pl"><strong>+231</strong></td>
+                    <td class="num-col">48,15%</td>
+                    <td class="num-col">51,19%</td>
+                    <td class="num-col">+3,04 pp</td>
+                </tr>
+                <tr>
+                    <td>6º</td>
+                    <td>Faculdade Farias Brito (Castro Monte)</td>
+                    <td>Fortaleza (Varjota)</td>
+                    <td class="num-col">3.566</td>
+                    <td class="num-col">3.790</td>
+                    <td class="num-col badge-pl"><strong>+224</strong></td>
+                    <td class="num-col">47,26%</td>
+                    <td class="num-col">49,52%</td>
+                    <td class="num-col">+2,26 pp</td>
+                </tr>
+                <tr>
+                    <td>7º</td>
+                    <td>Universidade de Fortaleza (Unifor)</td>
+                    <td>Fortaleza (Edson Queiroz)</td>
+                    <td class="num-col">3.113</td>
+                    <td class="num-col">3.328</td>
+                    <td class="num-col badge-pl"><strong>+215</strong></td>
+                    <td class="num-col">41,29%</td>
+                    <td class="num-col">42,83%</td>
+                    <td class="num-col">+1,54 pp</td>
+                </tr>
+                <tr>
+                    <td>8º</td>
+                    <td>Centro Universitário 7 de Setembro (UNI7)</td>
+                    <td>Fortaleza (Eng. L. Cavalcante)</td>
+                    <td class="num-col">2.047</td>
+                    <td class="num-col">2.243</td>
+                    <td class="num-col badge-pl"><strong>+196</strong></td>
+                    <td class="num-col">46,91%</td>
+                    <td class="num-col">50,62%</td>
+                    <td class="num-col">+3,71 pp</td>
+                </tr>
+                <tr>
+                    <td>9º</td>
+                    <td>EEMTI Integrada 2 de Maio</td>
+                    <td>Fortaleza (Passaré)</td>
+                    <td class="num-col">1.637</td>
+                    <td class="num-col">1.819</td>
+                    <td class="num-col badge-pl"><strong>+182</strong></td>
+                    <td class="num-col">35,67%</td>
+                    <td class="num-col">37,22%</td>
+                    <td class="num-col">+1,55 pp</td>
+                </tr>
+                <tr>
+                    <td>10º</td>
+                    <td>Centro Educacional Cedce (Antigo Sesi)</td>
+                    <td>Fortaleza (Barra do Ceará)</td>
+                    <td class="num-col">1.686</td>
+                    <td class="num-col">1.860</td>
+                    <td class="num-col badge-pl"><strong>+174</strong></td>
+                    <td class="num-col">36,97%</td>
+                    <td class="num-col">37,34%</td>
+                    <td class="num-col">+0,37 pp</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- PERGUNTA 3 -->
+    <h2 class="section-heading">Em quais locais houve virada de vencedor entre os turnos?</h2>
+    <p>
+        Em todo o Ceará, <strong>71 locais de votação mudaram de vencedor</strong> entre o 1º e o 2º turno. Em todos os 71 casos, Flávio Bolsonaro venceu no 1º turno e Lula virou no 2º turno. Nenhum colégio eleitoral do Estado virou de Lula para Flávio Bolsonaro.
+    </p>
+    <p>
+        O maior local onde houve virada foi o <strong>Colégio Ari de Sá Cavalcante (WS)</strong>: no 1º turno, Flávio teve 4.803 votos contra 4.522 de Lula (vantagem de 281 votos para Flávio). No 2º turno, Lula virou e fez 5.364 votos contra 5.134 de Flávio (vantagem de 230 votos para Lula). O saldo foi revertido em <strong>+511 votos</strong> a favor de Lula.
+    </p>
+    <p>
+        O segundo maior local de virada foi a <strong>Faculdade Farias Brito (unidade Castro Monte)</strong>, no bairro Varjota: Flávio venceu no 1º turno por 3.566 a 3.346 (diferença de 220 votos), e Lula virou no 2º turno vencendo por 3.864 a 3.790 (diferença de 74 votos).
+    </p>
+    <p>
+        Outras viradas de destaque em Fortaleza:
+    </p>
+    <p>
+        &bull; <strong>Colégio Dáulio Bringel</strong> (Cidade dos Funcionários): Flávio venceu por 1.834 a 1.807 no 1ºT; Lula virou para 2.173 a 1.961 no 2ºT.<br>
+        &bull; <strong>Colégio Master Sul</strong> (Cidade dos Funcionários): Flávio venceu por 1.635 a 1.629 no 1ºT; Lula virou para 1.885 a 1.785 no 2ºT.<br>
+        &bull; <strong>Iate Clube</strong> (Mucuripe): Flávio venceu por 930 a 896 no 1ºT; Lula virou para 1.054 a 946 no 2ºT.<br>
+        &bull; <strong>Superintendência da Receita Federal</strong> (Aldeota): Flávio venceu por 681 a 662 no 1ºT; Lula virou para 747 a 734 no 2ºT.
+    </p>
+    <p>
+        Fora de Fortaleza, viradas ocorreram na <strong>Emeief Narciso Pessoa de Araújo</strong> em Maracanaú (Flávio venceu no 1ºT por 1.538 a 1.466; Lula venceu no 2ºT por 1.705 a 1.600), além de 2 escolas em Caucaia e 1 em Sobral (CEI Ivonir Aguiar).
+    </p>
+
+    <!-- TABELA VIRADAS -->
+    <div class="table-container">
+        <div class="table-title">Tabela 3: Principais locais onde houve virada de vencedor (Flávio 1ºT -> Lula 2ºT)</div>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Local de Votação</th>
+                    <th>Município / Bairro</th>
+                    <th class="num-col">1ºT Lula x Flávio</th>
+                    <th>Vencedor 1ºT</th>
+                    <th class="num-col">2ºT Lula x Flávio</th>
+                    <th>Vencedor 2ºT</th>
+                    <th class="num-col">Inversão de Saldo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Colégio Ari de Sá Cavalcante WS</td>
+                    <td>Fortaleza (Edson Queiroz)</td>
+                    <td class="num-col">4.522 x 4.803</td>
+                    <td><span class="badge-pl">Flávio (+281)</span></td>
+                    <td class="num-col">5.364 x 5.134</td>
+                    <td><span class="badge-pt">Lula (+230)</span></td>
+                    <td class="num-col"><span class="badge-virada">+511 votos</span></td>
+                </tr>
+                <tr>
+                    <td>Faculdade Farias Brito (C. Monte)</td>
+                    <td>Fortaleza (Varjota)</td>
+                    <td class="num-col">3.346 x 3.566</td>
+                    <td><span class="badge-pl">Flávio (+220)</span></td>
+                    <td class="num-col">3.864 x 3.790</td>
+                    <td><span class="badge-pt">Lula (+74)</span></td>
+                    <td class="num-col"><span class="badge-virada">+294 votos</span></td>
+                </tr>
+                <tr>
+                    <td>Colégio Dáulio Bringel</td>
+                    <td>Fortaleza (Cid. Funcionários)</td>
+                    <td class="num-col">1.807 x 1.834</td>
+                    <td><span class="badge-pl">Flávio (+27)</span></td>
+                    <td class="num-col">2.173 x 1.961</td>
+                    <td><span class="badge-pt">Lula (+212)</span></td>
+                    <td class="num-col"><span class="badge-virada">+239 votos</span></td>
+                </tr>
+                <tr>
+                    <td>Emeief Narciso Pessoa de Araújo</td>
+                    <td>Maracanaú (Cágado)</td>
+                    <td class="num-col">1.466 x 1.538</td>
+                    <td><span class="badge-pl">Flávio (+72)</span></td>
+                    <td class="num-col">1.705 x 1.600</td>
+                    <td><span class="badge-pt">Lula (+105)</span></td>
+                    <td class="num-col"><span class="badge-virada">+177 votos</span></td>
+                </tr>
+                <tr>
+                    <td>Colégio Master Sul</td>
+                    <td>Fortaleza (Cid. Funcionários)</td>
+                    <td class="num-col">1.629 x 1.635</td>
+                    <td><span class="badge-pl">Flávio (+6)</span></td>
+                    <td class="num-col">1.885 x 1.785</td>
+                    <td><span class="badge-pt">Lula (+100)</span></td>
+                    <td class="num-col"><span class="badge-virada">+106 votos</span></td>
+                </tr>
+                <tr>
+                    <td>Iate Clube de Fortaleza</td>
+                    <td>Fortaleza (Mucuripe)</td>
+                    <td class="num-col">896 x 930</td>
+                    <td><span class="badge-pl">Flávio (+34)</span></td>
+                    <td class="num-col">1.054 x 946</td>
+                    <td><span class="badge-pt">Lula (+108)</span></td>
+                    <td class="num-col"><span class="badge-virada">+142 votos</span></td>
+                </tr>
+                <tr>
+                    <td>Superintendência da Receita Federal</td>
+                    <td>Fortaleza (Aldeota)</td>
+                    <td class="num-col">662 x 681</td>
+                    <td><span class="badge-pl">Flávio (+19)</span></td>
+                    <td class="num-col">747 x 734</td>
+                    <td><span class="badge-pt">Lula (+13)</span></td>
+                    <td class="num-col"><span class="badge-virada">+32 votos</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- PERGUNTA 4 -->
+    <h2 class="section-heading">Qual o colégio com maior polarização (disputa mais apertada)?</h2>
+    <p>
+        Considerando locais de votação com mais de 500 eleitores em Fortaleza:
+    </p>
+    <p>
+        No <strong>1º turno</strong>, o colégio com resultado mais apertado foi o <strong>Colégio Luíza Távora</strong>, em Messejana, com diferença de apenas <strong>4 votos</strong>: Lula teve 276 votos (47,02%) e Flávio teve 272 votos (46,34%). Em segundo lugar ficou o <strong>Colégio Master Sul</strong>, na Cidade dos Funcionários, com diferença de <strong>6 votos</strong>: Flávio teve 1.635 votos (45,35%) contra 1.629 votos (45,19%) de Lula.
+    </p>
+    <p>
+        No <strong>2º turno</strong>, o colégio mais disputado foi o <strong>Colégio Christus Sul 3</strong>, na Cidade dos Funcionários, onde a diferença foi de <strong>11 votos</strong>: Lula venceu com 1.250 votos (50,22%) contra 1.239 votos (49,78%) de Flávio. O segundo mais apertado foi o prédio da <strong>Receita Federal</strong> na Aldeota, decidido por <strong>13 votos</strong>: Lula fez 747 votos (50,44%) e Flávio fez 734 votos (49,56%).
+    </p>
+
+    <!-- PERGUNTA 5 -->
+    <h2 class="section-heading">Quais são os maiores colégios eleitorais do Estado e quem venceu?</h2>
+    <p>
+        O maior local de votação do Ceará é o <strong>Colégio Ari de Sá Cavalcante (WS)</strong>, em Fortaleza, com 10.498 votos válidos no 2º turno. Lula venceu com 5.364 votos (51,10%) contra 5.134 votos (48,90%) de Flávio Bolsonaro.
+    </p>
+    <p>
+        O segundo maior é a <strong>Uece (Campus Itaperi)</strong>, com 8.448 votos válidos: Lula venceu com 5.273 votos (62,42%) contra 3.175 votos (37,58%) de Flávio.
+    </p>
+    <p>
+        O terceiro maior é a <strong>Unifor</strong>, com 7.771 votos válidos: Lula venceu com 4.443 votos (57,17%) contra 3.328 votos (42,83%) de Flávio.
+    </p>
+    <p>
+        O quarto maior é a <strong>Faculdade Farias Brito (Castro Monte)</strong>, com 7.654 votos válidos: Lula venceu com 3.864 votos (50,48%) contra 3.790 votos (49,52%) de Flávio.
+    </p>
+    <p>
+        O quinto maior é o <strong>Colégio Cívico Militar Batalha do Riachuelo</strong>, com 7.421 votos válidos: Flávio Bolsonaro venceu com 3.990 votos (53,77%) contra 3.431 votos (46,23%) de Lula.
+    </p>
+
+    <!-- PERGUNTA 6 -->
+    <h2 class="section-heading">Onde a vantagem entre os candidatos mais mudou no interior?</h2>
+    <p>
+        No interior, Lula manteve ampla liderança em quase todos os municípios, mas alguns locais registraram alterações na margem de votos:
+    </p>
+    <p>
+        <strong>Locais onde Flávio Bolsonaro mais encurtou a distância de Lula:</strong><br>
+        &bull; <strong>Assaré (Cras Centro de Referência):</strong> A vantagem de Lula caiu de +511 votos no 1ºT para +255 votos no 2ºT (Flávio descontou 256 votos da diferença).<br>
+        &bull; <strong>Palmácia (Escola Ramilson Holanda Luz):</strong> A vantagem de Lula caiu de +424 para +249 votos (Flávio descontou 175 votos).<br>
+        &bull; <strong>Tauá (Escola Josefa Pereira de Sena):</strong> A vantagem de Lula caiu de +315 para +148 votos (Flávio descontou 167 votos).
+    </p>
+    <p>
+        <strong>Locais onde Lula mais ampliou a vantagem sobre Flávio:</strong><br>
+        &bull; <strong>Uece Itaperi (Fortaleza):</strong> Saldo de Lula subiu de +1.488 para +2.099 votos (+611 votos de saldo a favor de Lula).<br>
+        &bull; <strong>EEIEF Rubens Vaz da Costa (Caucaia):</strong> Saldo subiu de +847 para +1.448 votos (+601 votos a favor de Lula).<br>
+        &bull; <strong>EEF Alice Moreira de Oliveira (Caucaia):</strong> Saldo subiu de +627 para +1.174 votos (+547 votos a favor de Lula).<br>
+        &bull; <strong>Escola Zilá Belém (Juazeiro do Norte):</strong> Saldo subiu de +1.988 para +2.511 votos (+523 votos a favor de Lula).
+    </p>
+
+    <!-- RODAPÉ FINAL -->
+    <div class="document-footer">
+        <div>Relatório Técnico gerado pela Central de Dados O POVO+ &bull; Base Oficial TSE 2026</div>
+        <div>Arquivo de dados brutos: <code>dados_secoes_ceara_presidente_1Te2T.csv</code></div>
+    </div>
+
+</body>
+</html>
+"""
+
+with open(HTML_PATH, "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print(f"HTML direto gerado em: {HTML_PATH}")
+
+chrome_path = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+cmd = [
+    chrome_path,
+    "--headless=new",
+    "--disable-gpu",
+    "--no-pdf-header-footer",
+    f"--print-to-pdf={PDF_NEXO}",
+    HTML_PATH
+]
+
+res = subprocess.run(cmd, capture_output=True, text=True)
+print(f"PDF direto compilado no projeto: {PDF_NEXO}")
+
+import shutil
+shutil.copy2(PDF_NEXO, PDF_DOWNLOADS)
+print(f"PDF direto copiado para Downloads: {PDF_DOWNLOADS}")
+print(f"Tamanho do PDF: {os.path.getsize(PDF_DOWNLOADS)} bytes")
+
